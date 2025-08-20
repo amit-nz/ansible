@@ -1,0 +1,21 @@
+---
+- name: Update Proxmox hosts
+  hosts: proxmox_hosts
+  become: yes
+  tasks:
+    - name: Update Proxmox hosts
+      apt:
+        update_cache: yes
+        upgrade: dist
+        autoremove: yes
+        force_apt_get: yes
+
+- name: Update Debian/Ubuntu systems
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Update Debian/Ubuntu systems
+      apt:
+        update_cache: yes
+        upgrade: yes
+        autoremove: yes
